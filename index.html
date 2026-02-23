@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="R-MAX Auto Wrocław – profesjonalny serwis samochodowy. Mechanika, diagnostyka, naprawy, geometria. Ocena 4,9/5 na Google." />
+    <title>R-MAX Auto | Serwis Samochodowy Wrocław</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --red: #d62828;
+            --red-dark: #a01f1f;
+            --red-glow: rgba(214, 40, 40, .3);
+            --blue: #1a3a5c;
+            --blue-m: #1e4d7b;
+            --blue-l: #2a6cad;
+            --blue-ll: #4a8fd4;
+            --grey-bg: #0b0f14;
+            --grey-s: #111620;
+            --grey-card: #161d28;
+            --grey-card2: #1c2535;
+            --border: rgba(255, 255, 255, .06);
+            --border-b: rgba(42, 108, 173, .25);
+            --text: #eef2f7;
+            --text-m: #7e94ac;
+            --gold: #f5c518;
+            --green: #3cdb6e;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--grey-bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ══════════════════════════════
+       NAVBAR
+    ══════════════════════════════ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 4rem;
+            height: 68px;
+            background: rgba(11, 15, 20, .85);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+            transition: background .3s;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .nav-logo-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+            background: linear-gradient(135deg, var(--blue-m), var(--blue-l));
+            border: 1px solid var(--blue-l);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 0 14px rgba(42, 108, 173, .3);
+        }
+
+        .nav-brand {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -.01em;
+        }
+
+        .nav-brand .r {
+            color: var(--red);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-m);
+            font-size: .88rem;
+            font-weight: 500;
+            letter-spacing: .03em;
+            transition: color .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            padding: .52rem 1.3rem;
+            border-radius: 8px;
+            background: var(--red);
+            color: #fff !important;
+            font-weight: 700 !important;
+            font-size: .85rem !important;
+            letter-spacing: .04em !important;
+            transition: background .2s, box-shadow .2s !important;
+        }
+
+        .nav-cta:hover {
+            background: #bf2020 !important;
+            box-shadow: 0 0 20px var(--red-glow) !important;
+        }
+
+        /* ══════════════════════════════
+       HERO
+    ══════════════════════════════ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            padding-top: 68px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background:
+                radial-gradient(ellipse 70% 80% at 100% 40%, rgba(26, 58, 92, .55) 0%, transparent 65%),
+                radial-gradient(ellipse 50% 50% at 0% 80%, rgba(214, 40, 40, .12) 0%, transparent 60%),
+                linear-gradient(160deg, #0b0f14 0%, #0d1520 55%, #0b0f14 100%);
+        }
+
+        /* grid overlay */
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(42, 108, 173, .08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(42, 108, 173, .08) 1px, transparent 1px);
+            background-size: 55px 55px;
+        }
+
+        /* large decorative text */
+        .hero-deco {
+            position: absolute;
+            right: -1.5rem;
+            bottom: -2rem;
+            font-size: clamp(8rem, 18vw, 22rem);
+            font-weight: 900;
+            letter-spacing: -.05em;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(42, 108, 173, .12);
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+            white-space: nowrap;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-left {}
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .28rem .9rem;
+            border-radius: 100px;
+            background: rgba(42, 108, 173, .1);
+            border: 1px solid rgba(42, 108, 173, .3);
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--blue-ll);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 8px var(--green);
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .35
+            }
+        }
+
+        .hero-h1 {
+            font-size: clamp(2.6rem, 5vw, 4.2rem);
+            font-weight: 900;
+            line-height: 1.06;
+            letter-spacing: -.03em;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-h1 em {
+            font-style: normal;
+            background: linear-gradient(100deg, var(--red) 0%, #ff6060 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-m);
+            max-width: 500px;
+            margin-bottom: 2.2rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: .9rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .85rem 2rem;
+            border-radius: 10px;
+            background: var(--red);
+            color: #fff;
+            font-family: inherit;
+            font-size: .95rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 24px var(--red-glow);
+            transition: transform .18s, box-shadow .18s, background .18s;
+        }
+
+        .btn-primary:hover {
+            background: #bf2020;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px var(--red-glow);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .85rem 2rem;
+            border-radius: 10px;
+            background: transparent;
+            color: var(--text);
+            font-family: inherit;
+            font-size: .95rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--border-b);
+            transition: border-color .18s, background .18s, transform .18s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--blue-l);
+            background: rgba(42, 108, 173, .08);
+            transform: translateY(-2px);
+        }
+
+        /* hero stats */
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2.8rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: .15rem;
+        }
+
+        .stat-num {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: -.03em;
+            line-height: 1;
+        }
+
+        .stat-num.gold {
+            color: var(--gold);
+        }
+
+        .stat-num.red {
+            color: var(--red);
+        }
+
+        .stat-num.blue {
+            color: var(--blue-ll);
+        }
+
+        .stat-label {
+            font-size: .72rem;
+            color: var(--text-m);
+            font-weight: 500;
+        }
+
+        /* ── hero right: card ── */
+        .hero-card {
+            background: var(--grey-card2);
+            border: 1px solid var(--border-b);
+            border-radius: 22px;
+            padding: 2.2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .5), 0 0 0 1px rgba(42, 108, 173, .08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--red), var(--blue-l));
+        }
+
+        .hcard-logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, var(--blue), var(--blue-m));
+            border: 2px solid var(--blue-l);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 30px rgba(42, 108, 173, .25);
+        }
+
+        .hcard-logo-sub {
+            font-size: .5rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            color: var(--blue-l);
+        }
+
+        .hcard-title {
+            text-align: center;
+            font-size: 1.7rem;
+            font-weight: 900;
+            margin-bottom: .25rem;
+        }
+
+        .hcard-title .r {
+            color: var(--red);
+        }
+
+        .hcard-sub {
+            text-align: center;
+            font-size: .75rem;
+            color: var(--text-m);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hcard-divider {
+            height: 1px;
+            background: var(--border);
+            margin-bottom: 1.5rem;
+        }
+
+        .hcard-row {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            padding: .6rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .03);
+            font-size: .85rem;
+            color: var(--text-m);
+        }
+
+        .hcard-row:last-child {
+            border-bottom: none;
+        }
+
+        .hcard-icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .hcard-row strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .rating-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: .9rem 1.1rem;
+            border-radius: 12px;
+            background: rgba(245, 197, 24, .06);
+            border: 1px solid rgba(245, 197, 24, .15);
+            margin-top: 1.2rem;
+        }
+
+        .rating-num {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .rating-stars {
+            font-size: .9rem;
+            color: var(--gold);
+        }
+
+        .rating-cnt {
+            font-size: .68rem;
+            color: var(--text-m);
+            font-weight: 500;
+        }
+
+        /* ══════════════════════════════
+       SECTION COMMON
+    ══════════════════════════════ */
+        section {
+            padding: 7rem 4rem;
+        }
+
+        .s-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .s-label {
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--blue-ll);
+            margin-bottom: .6rem;
+        }
+
+        .s-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 900;
+            letter-spacing: -.03em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .s-title em {
+            font-style: normal;
+            background: linear-gradient(100deg, var(--red), #ff6060);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .s-desc {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--text-m);
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        /* ══════════════════════════════
+       SERVICES
+    ══════════════════════════════ */
+        #uslugi {
+            background: var(--grey-s);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .service-card {
+            background: var(--grey-card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 1.8rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform .22s, border-color .22s, box-shadow .22s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-b);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, .4);
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 50% at 50% -10%, rgba(42, 108, 173, .12) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity .22s;
+        }
+
+        .service-card:hover::after {
+            opacity: 1;
+        }
+
+        .svc-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: var(--blue-ll);
+            filter: drop-shadow(0 0 8px rgba(42, 108, 173, .45));
+        }
+
+        .svc-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: .5rem;
+        }
+
+        .svc-desc {
+            font-size: .85rem;
+            color: var(--text-m);
+            line-height: 1.65;
+        }
+
+        .svc-tag {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: .22rem .7rem;
+            border-radius: 100px;
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            background: rgba(42, 108, 173, .1);
+            color: var(--blue-ll);
+            border: 1px solid rgba(42, 108, 173, .2);
+        }
+
+        /* ══════════════════════════════
+       O NAS
+    ══════════════════════════════ */
+        #o-nas {
+            background: var(--grey-bg);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-left .s-title {
+            margin-bottom: 1.2rem;
+        }
+
+        .about-left p {
+            font-size: .95rem;
+            line-height: 1.8;
+            color: var(--text-m);
+            margin-bottom: 1rem;
+        }
+
+        .about-values {
+            display: flex;
+            flex-direction: column;
+            gap: .75rem;
+            margin-top: 1.8rem;
+        }
+
+        .val-item {
+            display: flex;
+            align-items: center;
+            gap: .85rem;
+            padding: .8rem 1rem;
+            border-radius: 12px;
+            background: var(--grey-card);
+            border: 1px solid var(--border);
+        }
+
+        .val-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: rgba(42, 108, 173, .1);
+            color: var(--blue-ll);
+        }
+
+        .val-text {
+            font-size: .88rem;
+            font-weight: 500;
+        }
+
+        .val-sub {
+            font-size: .75rem;
+            color: var(--text-m);
+        }
+
+        /* about right: stats box */
+        .about-right {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .about-stat {
+            background: var(--grey-card2);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 1.6rem 1.4rem;
+            text-align: center;
+            transition: border-color .2s, transform .2s;
+        }
+
+        .about-stat:hover {
+            border-color: var(--border-b);
+            transform: translateY(-3px);
+        }
+
+        .astat-icon {
+            font-size: 2rem;
+            margin-bottom: .5rem;
+        }
+
+        .astat-num {
+            font-size: 2.4rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: .25rem;
+            letter-spacing: -.03em;
+        }
+
+        .astat-num.red {
+            color: var(--red);
+        }
+
+        .astat-num.blue {
+            color: var(--blue-ll);
+        }
+
+        .astat-num.gold {
+            color: var(--gold);
+        }
+
+        .astat-num.green {
+            color: var(--green);
+        }
+
+        .astat-label {
+            font-size: .73rem;
+            color: var(--text-m);
+            font-weight: 500;
+        }
+
+        /* ══════════════════════════════
+       OPINIE
+    ══════════════════════════════ */
+        #opinie {
+            background: var(--grey-s);
+        }
+
+        .reviews-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .review-score-big {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: var(--grey-card);
+            border: 1px solid rgba(245, 197, 24, .2);
+            border-radius: 18px;
+            padding: 1.5rem 2rem;
+        }
+
+        .rsb-num {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .rsb-stars {
+            font-size: 1.4rem;
+            color: var(--gold);
+        }
+
+        .rsb-cnt {
+            font-size: .8rem;
+            color: var(--text-m);
+            margin-top: .2rem;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .review-card {
+            background: var(--grey-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .rev-header {
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+            margin-bottom: 1rem;
+        }
+
+        .rev-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue), var(--blue-l));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+            border: 2px solid var(--border-b);
+        }
+
+        .rev-name {
+            font-size: .9rem;
+            font-weight: 700;
+        }
+
+        .rev-date {
+            font-size: .7rem;
+            color: var(--text-m);
+        }
+
+        .rev-stars {
+            color: var(--gold);
+            font-size: .85rem;
+            margin-bottom: .7rem;
+        }
+
+        .rev-text {
+            font-size: .83rem;
+            color: var(--text-m);
+            line-height: 1.65;
+        }
+
+        /* ══════════════════════════════
+       KONTAKT & GODZINY
+    ══════════════════════════════ */
+        #kontakt {
+            background: var(--grey-bg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .hours-card {
+            background: var(--grey-card2);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .hcard-hdr {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            padding: 1rem 1.4rem;
+            border-bottom: 1px solid var(--border);
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--text-m);
+        }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .hours-table tr td {
+            padding: .7rem 1.4rem;
+            font-size: .88rem;
+            border-bottom: 1px solid rgba(255, 255, 255, .03);
+        }
+
+        .hours-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .hours-table tr td:last-child {
+            text-align: right;
+            font-weight: 600;
+            color: var(--blue-ll);
+        }
+
+        .hours-table tr.today {
+            background: rgba(42, 108, 173, .08);
+        }
+
+        .hours-table tr.today td {
+            color: var(--text);
+        }
+
+        .hours-table tr.today td:first-child::after {
+            content: ' ←';
+            font-size: .65rem;
+            color: var(--blue-ll);
+            font-weight: 400;
+        }
+
+        .hours-table .closed td:last-child {
+            color: var(--text-m);
+            opacity: .5;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-block {
+            background: var(--grey-card2);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.3rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cb-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .cb-icon.blue {
+            background: rgba(42, 108, 173, .12);
+            border: 1px solid rgba(42, 108, 173, .25);
+        }
+
+        .cb-icon.red {
+            background: rgba(214, 40, 40, .1);
+            border: 1px solid rgba(214, 40, 40, .25);
+        }
+
+        .cb-icon.green {
+            background: rgba(60, 219, 110, .1);
+            border: 1px solid rgba(60, 219, 110, .25);
+        }
+
+        .cb-icon.gold {
+            background: rgba(245, 197, 24, .08);
+            border: 1px solid rgba(245, 197, 24, .2);
+        }
+
+        .cb-label {
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--text-m);
+        }
+
+        .cb-val {
+            font-size: .95rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-top: .1rem;
+        }
+
+        .cb-val a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .cb-val a:hover {
+            color: var(--blue-ll);
+        }
+
+        /* ══════════════════════════════
+       MAPA
+    ══════════════════════════════ */
+        #mapa {
+            background: var(--grey-s);
+        }
+
+        .map-wrap {
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--border-b);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .4);
+        }
+
+        .map-wrap iframe {
+            width: 100%;
+            height: 420px;
+            display: block;
+            border: none;
+            filter: invert(.9) hue-rotate(180deg) saturate(0.8) brightness(0.85);
+        }
+
+        /* ══════════════════════════════
+       QR SECTION
+    ══════════════════════════════ */
+        .qr-section {
+            background: linear-gradient(135deg, var(--blue) 0%, #0d1a2d 100%);
+            border-top: 1px solid rgba(42, 108, 173, .3);
+            padding: 4rem;
+        }
+
+        .qr-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .qr-left .ql-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: .5rem;
+        }
+
+        .qr-left .ql-sub {
+            font-size: .95rem;
+            color: rgba(255, 255, 255, .65);
+        }
+
+        .qr-right {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .qr-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .8rem 1.6rem;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: .9rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform .18s, box-shadow .18s;
+        }
+
+        .qr-btn.primary {
+            background: var(--red);
+            color: #fff;
+            box-shadow: 0 4px 20px var(--red-glow);
+        }
+
+        .qr-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--red-glow);
+        }
+
+        .qr-btn.outline {
+            background: rgba(255, 255, 255, .06);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, .2);
+        }
+
+        .qr-btn.outline:hover {
+            background: rgba(255, 255, 255, .1);
+            transform: translateY(-2px);
+        }
+
+        /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+        footer {
+            background: #060a0f;
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-left {
+            font-size: .88rem;
+            color: var(--text-m);
+        }
+
+        .footer-left strong {
+            color: var(--text);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            font-size: .8rem;
+            color: var(--text-m);
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--blue-ll);
+        }
+
+        /* ══════════════════════════════
+       SCROLL ANIMATIONS
+    ══════════════════════════════ */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ══════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════ */
+        @media (max-width: 1024px) {
+            .navbar {
+                padding: 0 2rem;
+            }
+
+            section {
+                padding: 5rem 2rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                padding: 0 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 2rem;
+            }
+
+            .qr-section {
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .navbar {
+                padding: 0 1.25rem;
+            }
+
+            section {
+                padding: 4rem 1.25rem;
+            }
+
+            .hero-h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+
+            .about-right {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            footer {
+                padding: 1.5rem 1.25rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .qr-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .qr-inner {
+                flex-direction: column;
+            }
+
+            .map-wrap iframe {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── NAVBAR ── -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-logo">
+            <img src="logobiale.png" alt="R-MAX Auto" style="height:38px; width:auto; display:block;" />
+        </a>
+        <div class="nav-links">
+            <a href="#uslugi">Usługi</a>
+            <a href="#o-nas">O nas</a>
+            <a href="#opinie">Opinie</a>
+            <a href="#kontakt">Kontakt</a>
+            <a href="#mapa">Lokalizacja</a>
+            <a href="tel:+48886494643" class="nav-cta">📞 Zadzwoń</a>
+        </div>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-deco">R-MAX</div>
+
+        <div class="hero-content">
+            <!-- LEFT -->
+            <div class="hero-left fade-up">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    Wrocław · Paprotna 8
+                </div>
+
+                <h1 class="hero-h1">
+                    Twój samochód<br />
+                    w <em>najlepszych rękach</em><br />
+                    we Wrocławiu
+                </h1>
+
+                <p class="hero-sub">
+                    Profesjonalny serwis samochodowy z wieloletnim doświadczeniem.
+                    Mechanika, diagnostyka komputerowa, naprawy blacharsko-lakiernicze
+                    i geometria zawieszenia – wszystko w jednym miejscu.
+                </p>
+
+                <div class="hero-btns">
+                    <a href="tel:+48886494643" class="btn-primary">📞 Zadzwoń teraz</a>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Paprotna+8,+51-117+Wroc%C5%82aw&travelmode=driving"
+                        target="_blank" rel="noopener" class="btn-outline">🧭 Jak dojechać</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-num gold">4,9</span>
+                        <span class="stat-label">Ocena Google ★★★★★</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num red">41</span>
+                        <span class="stat-label">Opinii klientów</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num blue">10+</span>
+                        <span class="stat-label">Lat doświadczenia</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT card -->
+            <div class="hero-right fade-up" style="transition-delay:.15s">
+                <div class="hero-card">
+                    <div class="hcard-logo" style="background:transparent; border:none; box-shadow:none;">
+                        <img src="logobiale.png" alt="R-MAX Auto" style="width:110px; height:auto;" />
+                    </div>
+                    <div class="hcard-sub" style="margin-top:.5rem;">Serwis samochodowy</div>
+                    <div class="hcard-divider"></div>
+
+                    <div class="hcard-row">
+                        <span class="hcard-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg></span>
+                        <span><strong>Paprotna 8</strong>, 51-117 Wrocław</span>
+                    </div>
+                    <div class="hcard-row">
+                        <span class="hcard-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.7 12.43 19.79 19.79 0 0 1 1.67 3.84a2 2 0 0 1 1.95-2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg></span>
+                        <span><strong>886 494 643</strong></span>
+                    </div>
+                    <div class="hcard-row">
+                        <span class="hcard-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg></span>
+                        <span>Pon–Czw <strong>08:00–17:00</strong> | Pt <strong>08:00–16:00</strong></span>
+                    </div>
+                    <div class="hcard-row">
+                        <span class="hcard-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                            </svg></span>
+                        <span>Mechanika · Diagnostyka · Geometria</span>
+                    </div>
+
+                    <div class="rating-row">
+                        <div class="rating-num">4,9</div>
+                        <div>
+                            <div class="rating-stars">★★★★★</div>
+                            <div class="rating-cnt">41 opinii na Google Maps</div>
+                            <span id="status-badge"
+                                style="font-size:.72rem;font-weight:700;margin-top:.2rem;display:inline-block"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── USŁUGI ── -->
+    <section id="uslugi">
+        <div class="s-inner">
+            <div class="s-label fade-up">Co robimy</div>
+            <h2 class="s-title fade-up">Kompleksowy serwis<br /><em>od A do Z</em></h2>
+            <p class="s-desc fade-up">
+                Oferujemy pełen zakres usług motoryzacyjnych. Nasz wykwalifikowany zespół
+                zadba o Twój pojazd z należytą starannością i precyzją.
+            </p>
+
+            <div class="services-grid">
+                <div class="service-card fade-up">
+                    <span class="svc-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                        </svg></span>
+                    <div class="svc-title">Mechanika ogólna</div>
+                    <div class="svc-desc">Naprawy silnika, skrzyni biegów, układu hamulcowego i wszystkich pozostałych
+                        podzespołów mechanicznych pojazdu.</div>
+                    <span class="svc-tag">Wszystkie marki</span>
+                </div>
+
+                <div class="service-card fade-up" style="transition-delay:.07s">
+                    <span class="svc-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="2" />
+                            <rect x="9" y="9" width="6" height="6" />
+                            <line x1="9" y1="1" x2="9" y2="4" />
+                            <line x1="15" y1="1" x2="15" y2="4" />
+                            <line x1="9" y1="20" x2="9" y2="23" />
+                            <line x1="15" y1="20" x2="15" y2="23" />
+                            <line x1="20" y1="9" x2="23" y2="9" />
+                            <line x1="20" y1="14" x2="23" y2="14" />
+                            <line x1="1" y1="9" x2="4" y2="9" />
+                            <line x1="1" y1="14" x2="4" y2="14" />
+                        </svg></span>
+                    <div class="svc-title">Diagnostyka komputerowa</div>
+                    <div class="svc-desc">Zaawansowana diagnostyka elektroniki pojazdu, odczyt i kasowanie błędów,
+                        kalibracja systemów ADAS.</div>
+                    <span class="svc-tag">Nowoczesny sprzęt</span>
+                </div>
+
+
+                <div class="service-card fade-up" style="transition-delay:.21s">
+                    <span class="svc-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <circle cx="12" cy="12" r="3" />
+                            <line x1="12" y1="2" x2="12" y2="9" />
+                            <line x1="12" y1="15" x2="12" y2="22" />
+                            <line x1="2" y1="12" x2="9" y2="12" />
+                            <line x1="15" y1="12" x2="22" y2="12" />
+                        </svg></span>
+                    <div class="svc-title">Wymiana i wyważanie kół</div>
+                    <div class="svc-desc">Sezonowa wymiana opon, wyważanie statyczne i dynamiczne kół. Naprawy
+                        wulkanizacyjne.</div>
+                    <span class="svc-tag">Szybka realizacja</span>
+                </div>
+
+                <div class="service-card fade-up" style="transition-delay:.28s">
+                    <span class="svc-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <line x1="12" y1="2" x2="12" y2="22" />
+                            <path d="m20 16-4-4 4-4" />
+                            <path d="m4 8 4 4-4 4" />
+                            <path d="m16 4-4 4-4-4" />
+                            <path d="m8 20 4-4 4 4" />
+                        </svg></span>
+                    <div class="svc-title">Klimatyzacja</div>
+                    <div class="svc-desc">Serwis, uzupełnianie czynnika, czyszczenie i dezynfekcja instalacji
+                        klimatyzacyjnej UV.</div>
+                    <span class="svc-tag">Certyfikat F-gaz</span>
+                </div>
+
+                <div class="service-card fade-up" style="transition-delay:.35s">
+                    <span class="svc-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" />
+                        </svg></span>
+                    <div class="svc-title">Przeglądy i wymiana oleju</div>
+                    <div class="svc-desc">Regularne przeglądy techniczne, wymiana oleju silnikowego i płynów
+                        eksploatacyjnych. Przypomnienia o terminach.</div>
+                    <span class="svc-tag">Ekspresowo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── O NAS ── -->
+    <section id="o-nas">
+        <div class="s-inner">
+            <div class="about-grid">
+                <div class="about-left fade-up">
+                    <div class="s-label">O nas</div>
+                    <h2 class="s-title">Pasja do motoryzacji,<br /><em>profesjonalizm</em> w każdym detalu</h2>
+
+                    <p>
+                        R-MAX Auto to wrocławski serwis samochodowy zlokalizowany przy ulicy Paprotnej 8.
+                        Oferujemy kompleksową obsługę pojazdów wszystkich marek i modeli – od rutynowych przeglądów
+                        po zaawansowane naprawy mechaniczne i elektroniczne.
+                    </p>
+                    <p>
+                        Nieustannie inwestujemy w nowoczesny sprzęt diagnostyczny oraz szkolenia naszego zespołu,
+                        aby zawsze być na bieżąco z technologiami stosowanymi w najnowszych pojazdach.
+                    </p>
+                    <p>
+                        Zaufało nam już ponad 400 klientów, a nasza ocena 4,9/5 na Google Maps
+                        mówi sama za siebie. Dla nas liczy się nie tylko naprawa – liczy się Twoje zadowolenie.
+                    </p>
+
+                    <div class="about-values">
+                        <div class="val-item">
+                            <span class="val-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>
+                            <div>
+                                <div class="val-text">Transparentne wyceny</div>
+                                <div class="val-sub">Zawsze informujemy o kosztach przed przystąpieniem do pracy</div>
+                            </div>
+                        </div>
+                        <div class="val-item">
+                            <span class="val-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                </svg></span>
+                            <div>
+                                <div class="val-text">Szybka realizacja</div>
+                                <div class="val-sub">Większość napraw wykonujemy w ciągu jednego dnia roboczego</div>
+                            </div>
+                        </div>
+                        <div class="val-item">
+                            <span class="val-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg></span>
+                            <div>
+                                <div class="val-text">Gwarancja na usługi</div>
+                                <div class="val-sub">Udzielamy gwarancji na wykonane naprawy i zastosowane części</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-right fade-up" style="transition-delay:.12s">
+                    <div class="about-stat">
+                        <div class="astat-icon">⭐</div>
+                        <div class="astat-num gold">4,9</div>
+                        <div class="astat-label">Średnia ocena Google</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="astat-icon">💬</div>
+                        <div class="astat-num blue">41</div>
+                        <div class="astat-label">Pozytywnych opinii</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="astat-icon">🚗</div>
+                        <div class="astat-num red">500+</div>
+                        <div class="astat-label">Obsłużonych pojazdów</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── OPINIE ── -->
+    <section id="opinie">
+        <div class="s-inner">
+            <div class="reviews-top"
+                style="align-items:center; justify-content:center; flex-direction:column; text-align:center; gap:2.5rem;">
+                <div>
+                    <div class="s-label fade-up">Opinie klientów</div>
+                    <h2 class="s-title fade-up">Co mówią o nas<br /><em>klienci?</em></h2>
+                    <p class="s-desc fade-up" style="margin:0 auto;">
+                        Sprawdź prawdziwe opinie naszych klientów bezpośrednio na Google Maps.
+                    </p>
+                </div>
+
+                <div class="review-score-big fade-up"
+                    style="flex-direction:column; align-items:center; gap:1rem; padding:2rem 3rem;">
+                    <div style="display:flex; align-items:center; gap:1.5rem;">
+                        <div class="rsb-num">4,9</div>
+                        <div>
+                            <div class="rsb-stars">★★★★★</div>
+                            <div class="rsb-cnt" style="font-size:.9rem; margin-top:.3rem;">41 opinii · Google Maps
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://www.google.com/maps/place/R-MAX+Auto/@51.131,17.005,17z" target="_blank"
+                        rel="noopener" class="btn-primary" style="margin-top:.5rem; font-size:.9rem;">
+                        ⭐ Przeczytaj opinie na Google
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── KONTAKT & GODZINY ── -->
+    <section id="kontakt">
+        <div class="s-inner">
+            <div class="s-label fade-up">Kontakt</div>
+            <h2 class="s-title fade-up">Znajdź nas &amp; <em>skontaktuj się</em></h2>
+            <p class="s-desc fade-up">Zadzwoń lub przyjedź – jesteśmy do Twojej dyspozycji.</p>
+
+            <div class="contact-grid">
+                <!-- godziny -->
+                <div class="hours-card fade-up">
+                    <div class="hcard-hdr">🕐 Godziny otwarcia</div>
+                    <table class="hours-table" id="hours-table">
+                        <tr data-day="1">
+                            <td>Poniedziałek</td>
+                            <td>08:00 – 17:00</td>
+                        </tr>
+                        <tr data-day="2">
+                            <td>Wtorek</td>
+                            <td>08:00 – 17:00</td>
+                        </tr>
+                        <tr data-day="3">
+                            <td>Środa</td>
+                            <td>08:00 – 17:00</td>
+                        </tr>
+                        <tr data-day="4">
+                            <td>Czwartek</td>
+                            <td>08:00 – 17:00</td>
+                        </tr>
+                        <tr data-day="5">
+                            <td>Piątek</td>
+                            <td>08:00 – 16:00</td>
+                        </tr>
+                        <tr data-day="6" class="closed">
+                            <td>Sobota</td>
+                            <td>Zamknięte</td>
+                        </tr>
+                        <tr data-day="0" class="closed">
+                            <td>Niedziela</td>
+                            <td>Zamknięte</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- dane kontaktowe -->
+                <div class="contact-info fade-up" style="transition-delay:.1s">
+                    <div class="contact-block">
+                        <div class="cb-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg></div>
+                        <div>
+                            <div class="cb-label">Adres</div>
+                            <div class="cb-val">Paprotna 8, 51-117 Wrocław</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-block">
+                        <div class="cb-icon green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.7 12.43 19.79 19.79 0 0 1 1.67 3.84a2 2 0 0 1 1.95-2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg></div>
+                        <div>
+                            <div class="cb-label">Telefon</div>
+                            <div class="cb-val"><a href="tel:+48886494643">886 494 643</a></div>
+                        </div>
+                    </div>
+
+                    <div class="contact-block">
+                        <div class="cb-icon red"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg></div>
+                        <div>
+                            <div class="cb-label">Facebook</div>
+                            <div class="cb-val"><a href="https://www.facebook.com" target="_blank" id="fb-link">Profil
+                                    R-MAX Auto</a></div>
+                        </div>
+                    </div>
+
+                    <div class="contact-block">
+                        <div class="cb-icon gold"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                            </svg></div>
+                        <div>
+                            <div class="cb-label">Nawigacja</div>
+                            <div class="cb-val">
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=Paprotna+8,+51-117+Wroc%C5%82aw&travelmode=driving"
+                                    target="_blank" rel="noopener">Wyznacz trasę w Google Maps</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="tel:+48886494643" class="btn-primary" style="justify-content:center;margin-top:.5rem">
+                        📞 Zadzwoń teraz – 886 494 643
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── MAPA ── -->
+    <section id="mapa" style="padding-top:0">
+        <div class="s-inner">
+            <div class="map-wrap fade-up">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2507.7!2d17.005!3d51.131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fe9a9e9e9e9e9%3A0x0!2sPaprotna+8%2C+51-117+Wroc%C5%82aw!5e0!3m2!1spl!2spl!4v1700000000000!5m2!1spl!2spl"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="Mapa R-MAX Auto Wrocław">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── QR / MOBILE CTA ── -->
+    <div class="qr-section">
+        <div class="qr-inner">
+            <div class="qr-left">
+                <div class="ql-title">📱 Masz nas w kieszeni</div>
+                <div class="ql-sub">Zeskanuj kod QR i otwórz nasz mobilny przewodnik – nawigacja, telefon i Facebook
+                    jednym kliknięciem.</div>
+            </div>
+            <div class="qr-right">
+                <a href="tel:+48886494643" class="qr-btn primary">📞 Zadzwoń</a>
+                <a href="guide.html" class="qr-btn outline">📱 Otwórz guide</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Paprotna+8,+51-117+Wroc%C5%82aw&travelmode=driving"
+                    target="_blank" rel="noopener" class="qr-btn outline">🧭 Nawigacja</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="footer-left">
+            <strong>R-MAX Auto</strong> · Paprotna 8, 51-117 Wrocław · 886 494 643<br />
+            <span style="font-size:.75rem">© 2025 R-MAX Auto. Wszelkie prawa zastrzeżone.</span>
+        </div>
+        <div class="footer-links">
+            <a href="#uslugi">Usługi</a>
+            <a href="#o-nas">O nas</a>
+            <a href="#opinie">Opinie</a>
+            <a href="#kontakt">Kontakt</a>
+            <a href="guide.html">📱 Guide</a>
+        </div>
+    </footer>
+
+    <script>
+        /* ── Open/Closed ── */
+        (function () {
+            const hours = {
+                1: { o: 480, c: 1020 }, 2: { o: 480, c: 1020 }, 3: { o: 480, c: 1020 },
+                4: { o: 480, c: 1020 }, 5: { o: 480, c: 960 }, 6: null, 0: null
+            };
+            const now = new Date();
+            const day = now.getDay();
+            const mins = now.getHours() * 60 + now.getMinutes();
+            const h = hours[day];
+            const isOpen = h && mins >= h.o && mins < h.c;
+
+            // hero card badge
+            const badge = document.getElementById('status-badge');
+            if (badge) {
+                badge.style.color = isOpen ? '#3cdb6e' : '#ff6b6b';
+                badge.textContent = isOpen ? '● Teraz otwarte' : '● Teraz zamknięte';
+            }
+
+            // hours table
+            document.querySelectorAll('#hours-table tr').forEach(function (tr) {
+                if (parseInt(tr.dataset.day) === day) tr.classList.add('today');
+            });
+        })();
+
+        /* ── Navbar scroll glow ── */
+        window.addEventListener('scroll', function () {
+            const nb = document.getElementById('navbar');
+            if (window.scrollY > 40) {
+                nb.style.background = 'rgba(11,15,20,.97)';
+                nb.style.boxShadow = '0 4px 30px rgba(0,0,0,.5)';
+            } else {
+                nb.style.background = 'rgba(11,15,20,.85)';
+                nb.style.boxShadow = 'none';
+            }
+        });
+
+        /* ── Fade-up on scroll ── */
+        (function () {
+            const els = document.querySelectorAll('.fade-up');
+            if ('IntersectionObserver' in window) {
+                const obs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+                    });
+                }, { threshold: 0.1 });
+                els.forEach(function (el) { obs.observe(el); });
+            } else {
+                els.forEach(function (el) { el.classList.add('visible'); });
+            }
+        })();
+    </script>
+</body>
+
+</html>
