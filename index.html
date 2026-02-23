@@ -908,61 +908,29 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-        }
-
-        .cb-icon {
-            width: 46px;
-            height: 46px;
-            border-radius: 12px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-        }
-
-        .cb-icon.blue {
-            background: rgba(42, 108, 173, .12);
-            border: 1px solid rgba(42, 108, 173, .25);
-        }
-
-        .cb-icon.red {
-            background: rgba(214, 40, 40, .1);
-            border: 1px solid rgba(214, 40, 40, .25);
-        }
-
-        .cb-icon.green {
-            background: rgba(60, 219, 110, .1);
-            border: 1px solid rgba(60, 219, 110, .25);
-        }
-
-        .cb-icon.gold {
-            background: rgba(245, 197, 24, .08);
-            border: 1px solid rgba(245, 197, 24, .2);
-        }
-
-        .cb-label {
-            font-size: .68rem;
-            font-weight: 700;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            color: var(--text-m);
-        }
-
-        .cb-val {
-            font-size: .95rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-top: .1rem;
-        }
-
-        .cb-val a {
-            color: inherit;
             text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: background .2s, border-color .2s, transform .18s;
+            position: relative;
         }
 
-        .cb-val a:hover {
-            color: var(--blue-ll);
+        .contact-block:hover {
+            background: rgba(42, 108, 173, .07);
+            border-color: rgba(42, 108, 173, .35);
+            transform: translateX(4px);
+        }
+
+        .cb-arrow {
+            margin-left: auto;
+            flex-shrink: 0;
+            opacity: .3;
+            transition: opacity .2s, transform .2s;
+        }
+
+        .contact-block:hover .cb-arrow {
+            opacity: .7;
+            transform: translateX(3px);
         }
 
         /* ══════════════════════════════
@@ -1064,37 +1032,48 @@
         footer {
             background: #060a0f;
             border-top: 1px solid var(--border);
-            padding: 2.5rem 4rem;
+            padding: 2rem 4rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1.2rem;
         }
 
-        .footer-left {
-            font-size: .88rem;
+        .footer-promo {
+            font-size: .82rem;
             color: var(--text-m);
+            line-height: 1.6;
+            max-width: 520px;
         }
 
-        .footer-left strong {
+        .footer-promo strong {
             color: var(--text);
+            display: block;
+            margin-bottom: .3rem;
+            font-size: .85rem;
         }
 
-        .footer-links {
+        .footer-contact {
             display: flex;
-            gap: 1.5rem;
+            flex-direction: column;
+            gap: .45rem;
+            align-items: flex-end;
         }
 
-        .footer-links a {
-            font-size: .8rem;
-            color: var(--text-m);
-            text-decoration: none;
-            transition: color .2s;
-        }
-
-        .footer-links a:hover {
+        .footer-contact a {
+            font-size: .82rem;
+            font-weight: 600;
             color: var(--blue-ll);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            transition: color .15s;
+        }
+
+        .footer-contact a:hover {
+            color: var(--text);
         }
 
         /* ══════════════════════════════
@@ -1853,58 +1832,53 @@
 
                 <!-- dane kontaktowe -->
                 <div class="contact-info fade-up" style="transition-delay:.1s">
-                    <div class="contact-block">
+                    <a class="contact-block"
+                        href="https://www.google.com/maps/dir/?api=1&destination=Paprotna+8,+51-117+Wroc%C5%82aw&travelmode=driving"
+                        target="_blank" rel="noopener">
                         <div class="cb-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                                 <circle cx="12" cy="10" r="3" />
                             </svg></div>
                         <div>
-                            <div class="cb-label">Adres</div>
+                            <div class="cb-label">Adres &mdash; kliknij, by nawigować</div>
                             <div class="cb-val">Paprotna 8, 51-117 Wrocław</div>
                         </div>
-                    </div>
+                        <svg class="cb-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </a>
 
-                    <div class="contact-block">
+                    <a class="contact-block" href="tel:+48886494643">
                         <div class="cb-icon green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path
                                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.7 12.43 19.79 19.79 0 0 1 1.67 3.84a2 2 0 0 1 1.95-2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                             </svg></div>
                         <div>
-                            <div class="cb-label">Telefon</div>
-                            <div class="cb-val"><a href="tel:+48886494643">886 494 643</a></div>
+                            <div class="cb-label">Telefon &mdash; kliknij, by zadzwonić</div>
+                            <div class="cb-val">886 494 643</div>
                         </div>
-                    </div>
+                        <svg class="cb-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </a>
 
-                    <div class="contact-block">
+                    <a class="contact-block" href="https://www.facebook.com" target="_blank" rel="noopener"
+                        id="fb-link">
                         <div class="cb-icon red"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                             </svg></div>
                         <div>
-                            <div class="cb-label">Facebook</div>
-                            <div class="cb-val"><a href="https://www.facebook.com" target="_blank" id="fb-link">Profil
-                                    R-MAX Auto</a></div>
+                            <div class="cb-label">Facebook &mdash; kliknij, by otworzyć</div>
+                            <div class="cb-val">Profil R-MAX Auto</div>
                         </div>
-                    </div>
-
-                    <div class="contact-block">
-                        <div class="cb-icon gold"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" />
-                                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
-                            </svg></div>
-                        <div>
-                            <div class="cb-label">Nawigacja</div>
-                            <div class="cb-val">
-                                <a href="https://www.google.com/maps/dir/?api=1&destination=Paprotna+8,+51-117+Wroc%C5%82aw&travelmode=driving"
-                                    target="_blank" rel="noopener">Wyznacz trasę w Google Maps</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="tel:+48886494643" class="btn-primary" style="justify-content:center;margin-top:.5rem">
-                        📞 Zadzwoń teraz – 886 494 643
+                        <svg class="cb-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
                     </a>
                 </div>
             </div>
@@ -1929,8 +1903,8 @@
         <div class="qr-inner">
             <div class="qr-left">
                 <div class="ql-title">📱 Masz nas w kieszeni</div>
-                <div class="ql-sub">Zeskanuj kod QR i otwórz nasz mobilny przewodnik – nawigacja, telefon i Facebook
-                    jednym kliknięciem.</div>
+                <div class="ql-sub">Zeskanuj kod QR z naszej <strong>wizytówki</strong> i otwórz mobilny przewodnik –
+                    nawigacja, telefon i Facebook jednym kliknięciem.</div>
             </div>
             <div class="qr-right">
                 <a href="tel:+48886494643" class="qr-btn primary">📞 Zadzwoń</a>
@@ -1943,16 +1917,29 @@
 
     <!-- ── FOOTER ── -->
     <footer>
-        <div class="footer-left">
-            <strong>R-MAX Auto</strong> · Paprotna 8, 51-117 Wrocław · 886 494 643<br />
-            <span style="font-size:.75rem">© 2025 R-MAX Auto. Wszelkie prawa zastrzeżone.</span>
+        <div class="footer-promo">
+            <strong>Potrzebujesz takiej strony dla swojej firmy?</strong>
+            Profesjonalne strony internetowe przygotowane pod Twoje potrzeby – estetyczne, szybkie i w pełni
+            responsywne.
+            Zadzwoń lub napisz.
         </div>
-        <div class="footer-links">
-            <a href="#uslugi">Usługi</a>
-            <a href="#o-nas">O nas</a>
-            <a href="#opinie">Opinie</a>
-            <a href="#kontakt">Kontakt</a>
-            <a href="guide.html">📱 Guide</a>
+        <div class="footer-contact">
+            <a href="mailto:graf.m.jar@gmail.com">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+                graf.m.jar@gmail.com
+            </a>
+            <a href="tel:+48608078802">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.7 12.43 19.79 19.79 0 0 1 1.67 3.84a2 2 0 0 1 1.95-2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                608 078 802
+            </a>
         </div>
     </footer>
 
